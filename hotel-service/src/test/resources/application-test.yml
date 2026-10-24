@@ -1,0 +1,36 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: hotel-service-test
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+
+# Отключаем Eureka для тестов
+eureka:
+  client:
+    enabled: false
+  instance:
+    enabled: false
+
+security:
+  jwt:
+    secret: testSecretKey123456789012345678901234567890
+    ttl-seconds: 3600
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health"
